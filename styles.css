@@ -1,0 +1,190 @@
+:root {
+  --bg: #12100e;
+  --gold: #c8a860;
+  --gold-soft: rgba(200, 168, 96, 0.55);
+  --gold-faint: rgba(200, 168, 96, 0.28);
+  --cream: #f3ead6;
+  --muted: #b9ae97;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 48px);
+}
+
+.menu {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background: var(--bg);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.frame {
+  position: absolute;
+  pointer-events: none;
+}
+
+.frame--outer {
+  inset: clamp(14px, 3vw, 34px);
+  border: 1px solid var(--gold-soft);
+}
+
+.frame--inner {
+  inset: clamp(18px, 3.6vw, 42px);
+  border: 1px solid var(--gold-faint);
+}
+
+.corner {
+  position: absolute;
+  width: clamp(28px, 5vw, 56px);
+  height: clamp(28px, 5vw, 56px);
+  pointer-events: none;
+}
+
+.corner--tl {
+  top: clamp(14px, 3vw, 34px);
+  left: clamp(14px, 3vw, 34px);
+  border-top: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
+}
+
+.corner--tr {
+  top: clamp(14px, 3vw, 34px);
+  right: clamp(14px, 3vw, 34px);
+  border-top: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+}
+
+.corner--bl {
+  bottom: clamp(14px, 3vw, 34px);
+  left: clamp(14px, 3vw, 34px);
+  border-bottom: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
+}
+
+.corner--br {
+  bottom: clamp(14px, 3vw, 34px);
+  right: clamp(14px, 3vw, 34px);
+  border-bottom: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+}
+
+.menu__content {
+  position: relative;
+  padding: clamp(32px, 6vw, 58px) clamp(24px, 8vw, 92px);
+  margin: clamp(18px, 3.6vw, 42px);
+}
+
+.menu__header {
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.menu__established {
+  color: var(--gold);
+  letter-spacing: 8px;
+  font-size: clamp(11px, 1.6vw, 16px);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.menu__title {
+  font-family: 'Cinzel', serif;
+  color: var(--cream);
+  font-size: clamp(32px, 7vw, 64px);
+  font-weight: 600;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.menu__subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.menu__rule {
+  height: 1px;
+  width: clamp(40px, 10vw, 120px);
+}
+
+.menu__rule--left {
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.menu__rule--right {
+  background: linear-gradient(270deg, transparent, var(--gold));
+}
+
+.menu__section {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 6px;
+  font-size: clamp(13px, 2vw, 19px);
+  white-space: nowrap;
+}
+
+.menu__columns {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  column-gap: clamp(24px, 5vw, 64px);
+}
+
+.menu__divider {
+  background: linear-gradient(var(--bg), rgba(200, 168, 96, 0.5), var(--bg));
+}
+
+.menu__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cocktail__name {
+  font-family: 'Cinzel', serif;
+  color: var(--cream);
+  font-size: clamp(20px, 3vw, 27px);
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.cocktail__desc {
+  color: var(--muted);
+  font-size: clamp(15px, 2vw, 19px);
+  font-style: italic;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .menu__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .menu__divider {
+    display: none;
+  }
+
+  .menu__list:first-of-type {
+    margin-bottom: 8px;
+  }
+
+  .corner {
+    display: none;
+  }
+}
